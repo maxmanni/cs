@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1-BasicControls", "Project1-BasicControls\Project1-BasicControls.csproj", "{0EE2A286-FE4D-4B69-86F1-02E308895CF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project2-Graphics", "Project2-Graphics\Project2-Graphics.csproj", "{618EC251-8503-4DD7-9EA6-0BB4B6A72B79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0EE2A286-FE4D-4B69-86F1-02E308895CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EE2A286-FE4D-4B69-86F1-02E308895CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EE2A286-FE4D-4B69-86F1-02E308895CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{618EC251-8503-4DD7-9EA6-0BB4B6A72B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{618EC251-8503-4DD7-9EA6-0BB4B6A72B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{618EC251-8503-4DD7-9EA6-0BB4B6A72B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{618EC251-8503-4DD7-9EA6-0BB4B6A72B79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
