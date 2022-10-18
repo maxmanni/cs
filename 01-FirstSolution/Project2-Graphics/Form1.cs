@@ -5,7 +5,7 @@ namespace Project2_Graphics
     public partial class Form1 : Form
     {
         private readonly Pen blackPen;
-        private readonly Pen[] colorPens = new Pen[4];
+        private readonly Pen[] colorPens = new Pen[10];
         private float scaleFactor = 1.0f;
         private float scaleFactorStep = 1.25f;
         private float step = 0.05f;
@@ -23,6 +23,12 @@ namespace Project2_Graphics
             colorPens[1] = new Pen(Color.Blue, 1.0f);
             colorPens[2] = new Pen(Color.Green, 1.0f);
             colorPens[3] = new Pen(Color.Magenta, 1.0f);
+            colorPens[4] = new Pen(Color.Brown, 1.0f);
+            colorPens[5] = new Pen(Color.LightBlue, 1.0f);
+            colorPens[6] = new Pen(Color.Beige, 1.0f);
+            colorPens[7] = new Pen(Color.Aquamarine, 1.0f);
+            colorPens[8] = new Pen(Color.Coral, 1.0f);
+            colorPens[9] = new Pen(Color.Pink, 1.0f);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,8 +43,6 @@ namespace Project2_Graphics
 
         private void pianoOnPaint(object? sender, PaintEventArgs e)
         {
-
-
             Graphics pg = e.Graphics;
             w = pianoCartesiano.Width;
             h = pianoCartesiano.Height;
@@ -46,10 +50,8 @@ namespace Project2_Graphics
             //update the size label
             dimPiano.Text = String.Format("{0}, {1}", w, h);
 
-
             //test: draw the diagonal line from top left to bottom right
-            drawLine(pg, blackPen, xmin, ymin, xmax, ymax);
-
+            //drawLine(pg, blackPen, xmin, ymin, xmax, ymax);
 
             //draw all the selected functions
             if (drawAxes.Checked)
@@ -96,7 +98,19 @@ namespace Project2_Graphics
                     x += step;
                 }
             }
+            if (drawExp.Checked)
+            {
+                float x = xmin;
+                while (x < xmax)
+                {
+                    float y = (float)Math.Exp(x);
+                    float next_x = x + step;
+                    float next_y = (float)Math.Exp(next_x);
+                    drawLine(pg, colorPens[3], x, y, next_x, next_y);
 
+                    x += step;
+                }
+            }
         }
 
         private PointF pixelToPoint(int px, int py)
@@ -158,6 +172,11 @@ namespace Project2_Graphics
         }
 
         private void drawQuad_CheckedChanged(object sender, EventArgs e)
+        {
+            pianoCartesiano.Invalidate();
+        }
+
+        private void drawExp_CheckedChanged(object sender, EventArgs e)
         {
             pianoCartesiano.Invalidate();
         }

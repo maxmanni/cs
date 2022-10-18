@@ -49,6 +49,7 @@
             this.coordMouse = new System.Windows.Forms.Label();
             this.dimPiano = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.drawExp = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +68,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.drawExp);
             this.panel1.Controls.Add(this.drawQuad);
             this.panel1.Controls.Add(this.apply);
             this.panel1.Controls.Add(this.label4);
@@ -94,7 +96,7 @@
             // 
             // apply
             // 
-            this.apply.Location = new System.Drawing.Point(10, 226);
+            this.apply.Location = new System.Drawing.Point(9, 265);
             this.apply.Name = "apply";
             this.apply.Size = new System.Drawing.Size(59, 22);
             this.apply.TabIndex = 6;
@@ -105,7 +107,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 179);
+            this.label4.Location = new System.Drawing.Point(9, 218);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 15);
             this.label4.TabIndex = 5;
@@ -113,7 +115,7 @@
             // 
             // txtStep
             // 
-            this.txtStep.Location = new System.Drawing.Point(9, 197);
+            this.txtStep.Location = new System.Drawing.Point(8, 236);
             this.txtStep.Name = "txtStep";
             this.txtStep.Size = new System.Drawing.Size(60, 23);
             this.txtStep.TabIndex = 4;
@@ -261,6 +263,17 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Dimensione piano";
             // 
+            // drawExp
+            // 
+            this.drawExp.AutoSize = true;
+            this.drawExp.Location = new System.Drawing.Point(12, 158);
+            this.drawExp.Name = "drawExp";
+            this.drawExp.Size = new System.Drawing.Size(69, 19);
+            this.drawExp.TabIndex = 8;
+            this.drawExp.Text = "y = e ^x";
+            this.drawExp.UseVisualStyleBackColor = true;
+            this.drawExp.CheckedChanged += new System.EventHandler(this.drawExp_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -301,5 +314,6 @@
         private Label coordPunto;
         private Label label6;
         private CheckBox drawQuad;
+        private CheckBox drawExp;
     }
 }
