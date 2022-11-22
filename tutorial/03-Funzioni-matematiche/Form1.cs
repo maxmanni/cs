@@ -181,6 +181,7 @@ namespace Project2_Graphics
             pianoCartesiano.Invalidate();
         }
 
+
         private void drawAxes_CheckedChanged(object sender, EventArgs e)
         {
             pianoCartesiano.Invalidate();

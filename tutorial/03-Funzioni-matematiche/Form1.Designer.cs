@@ -32,6 +32,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pianoCartesiano = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.drawExp = new System.Windows.Forms.CheckBox();
             this.drawQuad = new System.Windows.Forms.CheckBox();
             this.apply = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.coordMouse = new System.Windows.Forms.Label();
             this.dimPiano = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.drawExp = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,7 @@
             this.pianoCartesiano.Name = "pianoCartesiano";
             this.pianoCartesiano.Size = new System.Drawing.Size(708, 460);
             this.pianoCartesiano.TabIndex = 2;
+            this.pianoCartesiano.Paint += new System.Windows.Forms.PaintEventHandler(this.pianoOnPaint);
             // 
             // panel1
             // 
@@ -82,6 +83,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(116, 504);
             this.panel1.TabIndex = 3;
+            // 
+            // drawExp
+            // 
+            this.drawExp.AutoSize = true;
+            this.drawExp.Location = new System.Drawing.Point(12, 158);
+            this.drawExp.Name = "drawExp";
+            this.drawExp.Size = new System.Drawing.Size(69, 19);
+            this.drawExp.TabIndex = 8;
+            this.drawExp.Text = "y = e ^x";
+            this.drawExp.UseVisualStyleBackColor = true;
+            this.drawExp.CheckedChanged += new System.EventHandler(this.drawExp_CheckedChanged);
             // 
             // drawQuad
             // 
@@ -262,17 +274,6 @@
             this.label1.Size = new System.Drawing.Size(103, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "Dimensione piano";
-            // 
-            // drawExp
-            // 
-            this.drawExp.AutoSize = true;
-            this.drawExp.Location = new System.Drawing.Point(12, 158);
-            this.drawExp.Name = "drawExp";
-            this.drawExp.Size = new System.Drawing.Size(69, 19);
-            this.drawExp.TabIndex = 8;
-            this.drawExp.Text = "y = e ^x";
-            this.drawExp.UseVisualStyleBackColor = true;
-            this.drawExp.CheckedChanged += new System.EventHandler(this.drawExp_CheckedChanged);
             // 
             // Form1
             // 
