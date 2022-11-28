@@ -44,15 +44,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboFarcitura = new System.Windows.Forms.ComboBox();
             this.panelDisegno = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.saveButton = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNomeFile = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.loadButton = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panelCottura.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadButton)).BeginInit();
             this.SuspendLayout();
             // 
             // nuova
@@ -195,15 +195,16 @@
             this.panelDisegno.Size = new System.Drawing.Size(420, 417);
             this.panelDisegno.TabIndex = 15;
             // 
-            // pictureBox1
+            // saveButton
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(208, 353);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            this.saveButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.saveButton.InitialImage = null;
+            this.saveButton.Location = new System.Drawing.Point(208, 353);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(64, 64);
+            this.saveButton.TabIndex = 17;
+            this.saveButton.TabStop = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label7
             // 
@@ -231,15 +232,16 @@
             this.txtNomeFile.TabIndex = 20;
             this.txtNomeFile.Text = "torta1.txt";
             // 
-            // pictureBox2
+            // loadButton
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(278, 353);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
+            this.loadButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.loadButton.InitialImage = null;
+            this.loadButton.Location = new System.Drawing.Point(278, 353);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(64, 64);
+            this.loadButton.TabIndex = 21;
+            this.loadButton.TabStop = false;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // label9
             // 
@@ -256,11 +258,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.txtNomeFile);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.panelDisegno);
             this.Controls.Add(this.comboFarcitura);
             this.Controls.Add(this.label6);
@@ -275,10 +277,11 @@
             this.Controls.Add(this.nuova);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.panelCottura.ResumeLayout(false);
             this.panelCottura.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loadButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,11 +305,11 @@
         private Label label6;
         private ComboBox comboFarcitura;
         private Panel panelDisegno;
-        private PictureBox pictureBox1;
+        private PictureBox saveButton;
         private Label label7;
         private Label label8;
         private TextBox txtNomeFile;
-        private PictureBox pictureBox2;
+        private PictureBox loadButton;
         private Label label9;
     }
 }

@@ -23,7 +23,7 @@
             return nuovaTorta;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
             //carica valori possibili nella combobox Copertura
             comboCopertura.Items.Add(TipoCopertura.NESSUNO);
@@ -84,6 +84,19 @@
             {
                 panelCottura.Enabled = false;
             }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            Torta t = crea_oggetto_da_campi();
+            t.ScriviSuFile(txtNomeFile.Text);
+        }
+
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            Torta t = new Torta();  
+            t.LeggiDaFile(txtNomeFile.Text);
+            carica_campi_da_oggetto(t);
         }
     }
 }
