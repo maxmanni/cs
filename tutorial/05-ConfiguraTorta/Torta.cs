@@ -39,7 +39,7 @@ namespace _05_ConfiguraTorta
         {
             return string.Format("Nome={0};VaCotta={1};TemperaturaCottura={2};TempoCottura={3};NumeroStrati={4};Copertura={5};Farcitura={6}", 
                                     Nome, VaCotta, TemperaturaCottura, TempoCottura,
-                                    NumeroStrati, Copertura, Farcitura
+                                    NumeroStrati, (int)Copertura, (int)Farcitura
                    );
         }
 

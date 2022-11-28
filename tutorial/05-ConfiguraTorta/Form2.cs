@@ -68,7 +68,7 @@
             return t;
         }
 
-        private void nuova_Click(object sender, EventArgs e)
+        private void pulisciCampi_Click(object sender, EventArgs e)
         {
             //cra una nuova torta e carica i dati nei campi del form
             Torta t = creaUnaNuovaTorta();

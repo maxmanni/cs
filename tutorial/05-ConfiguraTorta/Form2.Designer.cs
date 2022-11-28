@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.nuova = new System.Windows.Forms.Button();
+            this.buttonPulisci = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.checkVaCotta = new System.Windows.Forms.CheckBox();
@@ -55,20 +55,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.loadButton)).BeginInit();
             this.SuspendLayout();
             // 
-            // nuova
+            // buttonPulisci
             // 
-            this.nuova.Location = new System.Drawing.Point(39, 28);
-            this.nuova.Name = "nuova";
-            this.nuova.Size = new System.Drawing.Size(76, 27);
-            this.nuova.TabIndex = 0;
-            this.nuova.Text = "Nuova";
-            this.nuova.UseVisualStyleBackColor = true;
-            this.nuova.Click += new System.EventHandler(this.nuova_Click);
+            this.buttonPulisci.Location = new System.Drawing.Point(17, 289);
+            this.buttonPulisci.Name = "buttonPulisci";
+            this.buttonPulisci.Size = new System.Drawing.Size(76, 27);
+            this.buttonPulisci.TabIndex = 0;
+            this.buttonPulisci.Text = "Pulisci";
+            this.buttonPulisci.UseVisualStyleBackColor = true;
+            this.buttonPulisci.Click += new System.EventHandler(this.pulisciCampi_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 88);
+            this.label1.Location = new System.Drawing.Point(24, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 15);
             this.label1.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(109, 84);
+            this.txtNome.Location = new System.Drawing.Point(108, 20);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 23);
             this.txtNome.TabIndex = 2;
@@ -84,7 +84,7 @@
             // checkVaCotta
             // 
             this.checkVaCotta.AutoSize = true;
-            this.checkVaCotta.Location = new System.Drawing.Point(26, 126);
+            this.checkVaCotta.Location = new System.Drawing.Point(25, 62);
             this.checkVaCotta.Name = "checkVaCotta";
             this.checkVaCotta.Size = new System.Drawing.Size(68, 19);
             this.checkVaCotta.TabIndex = 3;
@@ -98,7 +98,7 @@
             this.panelCottura.Controls.Add(this.label3);
             this.panelCottura.Controls.Add(this.txtTemperatura);
             this.panelCottura.Controls.Add(this.label2);
-            this.panelCottura.Location = new System.Drawing.Point(109, 126);
+            this.panelCottura.Location = new System.Drawing.Point(108, 62);
             this.panelCottura.Name = "panelCottura";
             this.panelCottura.Size = new System.Drawing.Size(194, 68);
             this.panelCottura.TabIndex = 8;
@@ -140,7 +140,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 220);
+            this.label4.Location = new System.Drawing.Point(24, 156);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 15);
             this.label4.TabIndex = 9;
@@ -148,7 +148,7 @@
             // 
             // txtNumStrati
             // 
-            this.txtNumStrati.Location = new System.Drawing.Point(112, 213);
+            this.txtNumStrati.Location = new System.Drawing.Point(111, 149);
             this.txtNumStrati.Name = "txtNumStrati";
             this.txtNumStrati.Size = new System.Drawing.Size(101, 23);
             this.txtNumStrati.TabIndex = 10;
@@ -156,7 +156,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 256);
+            this.label5.Location = new System.Drawing.Point(24, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 15);
             this.label5.TabIndex = 11;
@@ -164,8 +164,9 @@
             // 
             // comboCopertura
             // 
+            this.comboCopertura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCopertura.FormattingEnabled = true;
-            this.comboCopertura.Location = new System.Drawing.Point(112, 253);
+            this.comboCopertura.Location = new System.Drawing.Point(111, 189);
             this.comboCopertura.Name = "comboCopertura";
             this.comboCopertura.Size = new System.Drawing.Size(121, 23);
             this.comboCopertura.TabIndex = 12;
@@ -173,7 +174,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 303);
+            this.label6.Location = new System.Drawing.Point(26, 239);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 15);
             this.label6.TabIndex = 13;
@@ -181,8 +182,9 @@
             // 
             // comboFarcitura
             // 
+            this.comboFarcitura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboFarcitura.FormattingEnabled = true;
-            this.comboFarcitura.Location = new System.Drawing.Point(118, 300);
+            this.comboFarcitura.Location = new System.Drawing.Point(117, 236);
             this.comboFarcitura.Name = "comboFarcitura";
             this.comboFarcitura.Size = new System.Drawing.Size(115, 23);
             this.comboFarcitura.TabIndex = 14;
@@ -197,9 +199,9 @@
             // 
             // saveButton
             // 
-            this.saveButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.saveButton.InitialImage = null;
-            this.saveButton.Location = new System.Drawing.Point(208, 353);
+            this.saveButton.Location = new System.Drawing.Point(207, 289);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(64, 64);
             this.saveButton.TabIndex = 17;
@@ -209,7 +211,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(204, 426);
+            this.label7.Location = new System.Drawing.Point(203, 362);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 15);
             this.label7.TabIndex = 18;
@@ -218,7 +220,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(25, 415);
+            this.label8.Location = new System.Drawing.Point(24, 351);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 15);
             this.label8.TabIndex = 19;
@@ -226,7 +228,7 @@
             // 
             // txtNomeFile
             // 
-            this.txtNomeFile.Location = new System.Drawing.Point(88, 412);
+            this.txtNomeFile.Location = new System.Drawing.Point(87, 348);
             this.txtNomeFile.Name = "txtNomeFile";
             this.txtNomeFile.Size = new System.Drawing.Size(100, 23);
             this.txtNomeFile.TabIndex = 20;
@@ -234,9 +236,9 @@
             // 
             // loadButton
             // 
-            this.loadButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.loadButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loadButton.InitialImage = null;
-            this.loadButton.Location = new System.Drawing.Point(278, 353);
+            this.loadButton.Location = new System.Drawing.Point(277, 289);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(64, 64);
             this.loadButton.TabIndex = 21;
@@ -246,7 +248,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(278, 426);
+            this.label9.Location = new System.Drawing.Point(277, 362);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 15);
             this.label9.TabIndex = 22;
@@ -274,7 +276,7 @@
             this.Controls.Add(this.checkVaCotta);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.nuova);
+            this.Controls.Add(this.buttonPulisci);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -289,7 +291,7 @@
 
         #endregion
 		
-		private Button nuova;
+		private Button buttonPulisci;
         private Label label1;
         private TextBox txtNome;
         private CheckBox checkVaCotta;
