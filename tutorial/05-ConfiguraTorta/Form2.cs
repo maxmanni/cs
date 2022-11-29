@@ -1,16 +1,19 @@
-﻿namespace _05_ConfiguraTorta
+﻿using System.Diagnostics;
+
+namespace _05_ConfiguraTorta
 {
     public partial class Form2 : Form
     {
+        private Torta torta;
 
         public Form2()
         {
             InitializeComponent();
         }
 
-        private Torta creaUnaNuovaTorta ()
+        private void creaUnaNuovaTorta ()
         {
-            Torta nuovaTorta = new Torta() //chiamo il costruttore e inizializzo le proprietà pubbliche 
+            torta = new Torta() //chiamo il costruttore e inizializzo le proprietà pubbliche 
             {
                 Nome = "[nuova torta]",
                 Copertura = TipoCopertura.NESSUNO,
@@ -20,7 +23,6 @@
                 VaCotta = false,
                 NumeroStrati = 1
             };
-            return nuovaTorta;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -36,43 +38,46 @@
             comboFarcitura.Items.Add(TipoFarcitura.CREMA);
 
             //cra una nuova torta e carica i dati nei campi del form
-            Torta t = creaUnaNuovaTorta();
-            carica_campi_da_oggetto(t);
+            creaUnaNuovaTorta();
+            carica_campi_da_oggetto();
+
+            //evento per gestire il disegno
+            panelDisegno.Paint += ridisegna;
         }
 
-        private void carica_campi_da_oggetto (Torta t)
+        private void carica_campi_da_oggetto ()
         {
-            txtNome.Text = t.Nome;
-            checkVaCotta.Checked = t.VaCotta;
-            panelCottura.Enabled = t.VaCotta;   
-            txtTemperatura.Text = t.TemperaturaCottura.ToString();
-            txtTempo.Text = t.TempoCottura.ToString();
-            txtNumStrati.Text = t.NumeroStrati.ToString();
-            comboCopertura.SelectedIndex = (int) t.Copertura;
-            comboFarcitura.SelectedIndex = (int) t.Farcitura;
+            txtNome.Text = torta.Nome;
+            checkVaCotta.Checked = torta.VaCotta;
+            panelCottura.Enabled = torta.VaCotta;   
+            txtTemperatura.Text = torta.TemperaturaCottura.ToString();
+            txtTempo.Text = torta.TempoCottura.ToString();
+            txtNumStrati.Text = torta.NumeroStrati.ToString();
+            comboCopertura.SelectedIndex = (int) torta.Copertura;
+            comboFarcitura.SelectedIndex = (int) torta.Farcitura;
         }
 
         private Torta crea_oggetto_da_campi ()
         {
-            Torta t = creaUnaNuovaTorta();
-            t.Nome = txtNome.Text;
-            t.VaCotta = checkVaCotta.Checked;
-            if (t.VaCotta)
+            creaUnaNuovaTorta();
+            torta.Nome = txtNome.Text;
+            torta.VaCotta = checkVaCotta.Checked;
+            if (torta.VaCotta)
             {
-                t.TemperaturaCottura = Convert.ToSingle(txtTemperatura.Text);
-                t.TempoCottura = Convert.ToSingle(txtTempo.Text);
+                torta.TemperaturaCottura = Convert.ToSingle(txtTemperatura.Text);
+                torta.TempoCottura = Convert.ToSingle(txtTempo.Text);
             }
-            t.NumeroStrati = Convert.ToInt32(txtNumStrati.Text);
-            t.Copertura = (TipoCopertura) comboCopertura.SelectedIndex;
-            t.Farcitura = (TipoFarcitura) comboFarcitura.SelectedIndex;
-            return t;
+            torta.NumeroStrati = Convert.ToInt32(txtNumStrati.Text);
+            torta.Copertura = (TipoCopertura) comboCopertura.SelectedIndex;
+            torta.Farcitura = (TipoFarcitura) comboFarcitura.SelectedIndex;
+            return torta;
         }
 
         private void pulisciCampi_Click(object sender, EventArgs e)
         {
             //cra una nuova torta e carica i dati nei campi del form
-            Torta t = creaUnaNuovaTorta();
-            carica_campi_da_oggetto(t);
+            creaUnaNuovaTorta();
+            carica_campi_da_oggetto();
         }
 
         private void checkVaCotta_CheckedChanged(object sender, EventArgs e)
@@ -88,15 +93,62 @@
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Torta t = crea_oggetto_da_campi();
-            t.ScriviSuFile(txtNomeFile.Text);
+            torta = crea_oggetto_da_campi();
+            torta.ScriviSuFile(txtNomeFile.Text);
+            MessageBox.Show(string.Format("{0} salvato correttamente", txtNomeFile.Text), "Informazione");
         }
 
         private void loadButton_Click(object sender, EventArgs e)
         {
-            Torta t = new Torta();  
-            t.LeggiDaFile(txtNomeFile.Text);
-            carica_campi_da_oggetto(t);
+            torta = new Torta();
+            torta.LeggiDaFile(txtNomeFile.Text);
+            carica_campi_da_oggetto();
+            MessageBox.Show(string.Format("{0} caricato correttamente", txtNomeFile.Text), "Informazione");
+        }
+
+        private void openFileNotepad_Click(object sender, EventArgs e)
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = "notepad.exe";
+            p.StartInfo.Arguments = txtNomeFile.Text;
+            p.Start();
+        }
+
+        bool disegnaClicked = false;
+        private void buttonDisegna_Click(object sender, EventArgs e)
+        {
+            disegnaClicked = true;
+            panelDisegno.Invalidate();
+        }
+
+
+        const float larghezzaStrato = 100.0f;
+        const float altezzaStrato = 20.0f;
+        const float altezzaFarcitura = 5.0f;
+        const float yPartenzaTorta = 0.0f;
+
+        private void ridisegna(object? sender, PaintEventArgs e)
+        {
+            if (disegnaClicked)
+            {
+                Graphics g = e.Graphics;
+                g.Clear(panelDisegno.BackColor);
+
+                //sposta origine delle coordinate al centro del pannello e flippa l'asse y
+                g.ResetTransform();
+                g.TranslateTransform((float)panelDisegno.Width / 2.0f, (float)panelDisegno.Height / 2.0f);
+                g.ScaleTransform(1.0f, -1.0f);
+
+                float y = yPartenzaTorta;
+               
+
+
+                g.DrawLine(Pens.Red, 0.0f, 0.0f, (float)panelDisegno.Width /2 , (float)panelDisegno.Height/2 );
+
+
+                disegnaClicked = false;
+            }
+           
         }
     }
 }

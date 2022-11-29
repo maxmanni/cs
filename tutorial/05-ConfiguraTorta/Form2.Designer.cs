@@ -50,6 +50,8 @@
             this.txtNomeFile = new System.Windows.Forms.TextBox();
             this.loadButton = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.openFileNotepad = new System.Windows.Forms.Button();
+            this.buttonDisegna = new System.Windows.Forms.Button();
             this.panelCottura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadButton)).BeginInit();
@@ -57,7 +59,7 @@
             // 
             // buttonPulisci
             // 
-            this.buttonPulisci.Location = new System.Drawing.Point(17, 289);
+            this.buttonPulisci.Location = new System.Drawing.Point(17, 274);
             this.buttonPulisci.Name = "buttonPulisci";
             this.buttonPulisci.Size = new System.Drawing.Size(76, 27);
             this.buttonPulisci.TabIndex = 0;
@@ -78,7 +80,7 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(108, 20);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 23);
+            this.txtNome.Size = new System.Drawing.Size(124, 23);
             this.txtNome.TabIndex = 2;
             // 
             // checkVaCotta
@@ -150,7 +152,7 @@
             // 
             this.txtNumStrati.Location = new System.Drawing.Point(111, 149);
             this.txtNumStrati.Name = "txtNumStrati";
-            this.txtNumStrati.Size = new System.Drawing.Size(101, 23);
+            this.txtNumStrati.Size = new System.Drawing.Size(121, 23);
             this.txtNumStrati.TabIndex = 10;
             // 
             // label5
@@ -200,6 +202,7 @@
             // saveButton
             // 
             this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saveButton.Image = global::_05_ConfiguraTorta.Properties.Resources.save;
             this.saveButton.InitialImage = null;
             this.saveButton.Location = new System.Drawing.Point(207, 289);
             this.saveButton.Name = "saveButton";
@@ -220,23 +223,24 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 351);
+            this.label8.Location = new System.Drawing.Point(26, 330);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 15);
+            this.label8.Size = new System.Drawing.Size(115, 15);
             this.label8.TabIndex = 19;
-            this.label8.Text = "nome file";
+            this.label8.Text = "percorso e nome file";
             // 
             // txtNomeFile
             // 
-            this.txtNomeFile.Location = new System.Drawing.Point(87, 348);
+            this.txtNomeFile.Location = new System.Drawing.Point(26, 348);
             this.txtNomeFile.Name = "txtNomeFile";
-            this.txtNomeFile.Size = new System.Drawing.Size(100, 23);
+            this.txtNomeFile.Size = new System.Drawing.Size(161, 23);
             this.txtNomeFile.TabIndex = 20;
             this.txtNomeFile.Text = "torta1.txt";
             // 
             // loadButton
             // 
             this.loadButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loadButton.Image = global::_05_ConfiguraTorta.Properties.Resources.load;
             this.loadButton.InitialImage = null;
             this.loadButton.Location = new System.Drawing.Point(277, 289);
             this.loadButton.Name = "loadButton";
@@ -254,11 +258,33 @@
             this.label9.TabIndex = 22;
             this.label9.Text = "Carica da file";
             // 
+            // openFileNotepad
+            // 
+            this.openFileNotepad.Location = new System.Drawing.Point(26, 386);
+            this.openFileNotepad.Name = "openFileNotepad";
+            this.openFileNotepad.Size = new System.Drawing.Size(161, 23);
+            this.openFileNotepad.TabIndex = 23;
+            this.openFileNotepad.Text = "Open file in notepad";
+            this.openFileNotepad.UseVisualStyleBackColor = true;
+            this.openFileNotepad.Click += new System.EventHandler(this.openFileNotepad_Click);
+            // 
+            // buttonDisegna
+            // 
+            this.buttonDisegna.Location = new System.Drawing.Point(255, 235);
+            this.buttonDisegna.Name = "buttonDisegna";
+            this.buttonDisegna.Size = new System.Drawing.Size(95, 25);
+            this.buttonDisegna.TabIndex = 24;
+            this.buttonDisegna.Text = "disegna";
+            this.buttonDisegna.UseVisualStyleBackColor = true;
+            this.buttonDisegna.Click += new System.EventHandler(this.buttonDisegna_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonDisegna);
+            this.Controls.Add(this.openFileNotepad);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.txtNomeFile);
@@ -277,8 +303,10 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonPulisci);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Configuratore torte";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panelCottura.ResumeLayout(false);
             this.panelCottura.PerformLayout();
@@ -313,5 +341,7 @@
         private TextBox txtNomeFile;
         private PictureBox loadButton;
         private Label label9;
+        private Button openFileNotepad;
+        private Button buttonDisegna;
     }
 }
