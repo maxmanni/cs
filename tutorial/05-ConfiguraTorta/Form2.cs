@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO;
 
 namespace _05_ConfiguraTorta
 {
@@ -95,23 +96,35 @@ namespace _05_ConfiguraTorta
         {
             torta = crea_oggetto_da_campi();
             torta.ScriviSuFile(txtNomeFile.Text);
-            MessageBox.Show(string.Format("{0} salvato correttamente", txtNomeFile.Text), "Informazione");
+            MessageBox.Show(string.Format("{0} salvato correttamente", txtNomeFile.Text), "Salva file", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void loadButton_Click(object sender, EventArgs e)
         {
             torta = new Torta();
-            torta.LeggiDaFile(txtNomeFile.Text);
-            carica_campi_da_oggetto();
-            MessageBox.Show(string.Format("{0} caricato correttamente", txtNomeFile.Text), "Informazione");
+            if (torta.LeggiDaFile(txtNomeFile.Text))
+            {
+                carica_campi_da_oggetto();
+                MessageBox.Show(string.Format("{0} caricato correttamente", txtNomeFile.Text), "Apri file", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show(string.Format("Il file {0} non esiste", txtNomeFile.Text), "Apri file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void openFileNotepad_Click(object sender, EventArgs e)
         {
-            Process p = new Process();
-            p.StartInfo.FileName = "notepad.exe";
-            p.StartInfo.Arguments = txtNomeFile.Text;
-            p.Start();
+            if (File.Exists(txtNomeFile.Text))
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = "notepad.exe";
+                p.StartInfo.Arguments = txtNomeFile.Text;
+                p.Start();
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Il file {0} non esiste", txtNomeFile.Text), "Apri file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         bool disegnaClicked = false;

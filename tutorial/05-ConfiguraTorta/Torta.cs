@@ -105,10 +105,18 @@ namespace _05_ConfiguraTorta
             }
         }
 
-        public void LeggiDaFile (string path)
+        public bool LeggiDaFile (string path)
         {
-            string s = File.ReadAllText(path);
-            Parse(s);
+            if (File.Exists(path))
+            {
+                string s = File.ReadAllText(path);
+                Parse(s);
+                return true;
+            } else
+            {
+                return false;
+            }
+            
         }
     }
 }

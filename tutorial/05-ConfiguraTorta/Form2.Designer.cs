@@ -52,6 +52,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.openFileNotepad = new System.Windows.Forms.Button();
             this.buttonDisegna = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelCottura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.saveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadButton)).BeginInit();
@@ -59,11 +60,11 @@
             // 
             // buttonPulisci
             // 
-            this.buttonPulisci.Location = new System.Drawing.Point(17, 274);
+            this.buttonPulisci.Location = new System.Drawing.Point(12, 238);
             this.buttonPulisci.Name = "buttonPulisci";
-            this.buttonPulisci.Size = new System.Drawing.Size(76, 27);
+            this.buttonPulisci.Size = new System.Drawing.Size(100, 25);
             this.buttonPulisci.TabIndex = 0;
-            this.buttonPulisci.Text = "Pulisci";
+            this.buttonPulisci.Text = "Pulisci form";
             this.buttonPulisci.UseVisualStyleBackColor = true;
             this.buttonPulisci.Click += new System.EventHandler(this.pulisciCampi_Click);
             // 
@@ -80,7 +81,7 @@
             // 
             this.txtNome.Location = new System.Drawing.Point(108, 20);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(124, 23);
+            this.txtNome.Size = new System.Drawing.Size(183, 23);
             this.txtNome.TabIndex = 2;
             // 
             // checkVaCotta
@@ -142,7 +143,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 156);
+            this.label4.Location = new System.Drawing.Point(17, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 15);
             this.label4.TabIndex = 9;
@@ -150,53 +151,53 @@
             // 
             // txtNumStrati
             // 
-            this.txtNumStrati.Location = new System.Drawing.Point(111, 149);
+            this.txtNumStrati.Location = new System.Drawing.Point(108, 140);
             this.txtNumStrati.Name = "txtNumStrati";
-            this.txtNumStrati.Size = new System.Drawing.Size(121, 23);
+            this.txtNumStrati.Size = new System.Drawing.Size(46, 23);
             this.txtNumStrati.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 192);
+            this.label5.Location = new System.Drawing.Point(17, 175);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 15);
+            this.label5.Size = new System.Drawing.Size(84, 15);
             this.label5.TabIndex = 11;
-            this.label5.Text = "tipo copertura";
+            this.label5.Text = "Tipo copertura";
             // 
             // comboCopertura
             // 
             this.comboCopertura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCopertura.FormattingEnabled = true;
-            this.comboCopertura.Location = new System.Drawing.Point(111, 189);
+            this.comboCopertura.Location = new System.Drawing.Point(108, 172);
             this.comboCopertura.Name = "comboCopertura";
-            this.comboCopertura.Size = new System.Drawing.Size(121, 23);
+            this.comboCopertura.Size = new System.Drawing.Size(183, 23);
             this.comboCopertura.TabIndex = 12;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 239);
+            this.label6.Location = new System.Drawing.Point(17, 204);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 15);
+            this.label6.Size = new System.Drawing.Size(77, 15);
             this.label6.TabIndex = 13;
-            this.label6.Text = "tipo farcitura";
+            this.label6.Text = "Tipo farcitura";
             // 
             // comboFarcitura
             // 
             this.comboFarcitura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboFarcitura.FormattingEnabled = true;
-            this.comboFarcitura.Location = new System.Drawing.Point(117, 236);
+            this.comboFarcitura.Location = new System.Drawing.Point(108, 201);
             this.comboFarcitura.Name = "comboFarcitura";
-            this.comboFarcitura.Size = new System.Drawing.Size(115, 23);
+            this.comboFarcitura.Size = new System.Drawing.Size(183, 23);
             this.comboFarcitura.TabIndex = 14;
             // 
             // panelDisegno
             // 
             this.panelDisegno.BackColor = System.Drawing.Color.White;
-            this.panelDisegno.Location = new System.Drawing.Point(368, 24);
+            this.panelDisegno.Location = new System.Drawing.Point(343, 12);
             this.panelDisegno.Name = "panelDisegno";
-            this.panelDisegno.Size = new System.Drawing.Size(420, 417);
+            this.panelDisegno.Size = new System.Drawing.Size(445, 429);
             this.panelDisegno.TabIndex = 15;
             // 
             // saveButton
@@ -204,7 +205,7 @@
             this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.saveButton.Image = global::_05_ConfiguraTorta.Properties.Resources.save;
             this.saveButton.InitialImage = null;
-            this.saveButton.Location = new System.Drawing.Point(207, 289);
+            this.saveButton.Location = new System.Drawing.Point(192, 307);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(64, 64);
             this.saveButton.TabIndex = 17;
@@ -214,7 +215,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(203, 362);
+            this.label7.Location = new System.Drawing.Point(188, 373);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 15);
             this.label7.TabIndex = 18;
@@ -223,15 +224,15 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 330);
+            this.label8.Location = new System.Drawing.Point(12, 309);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 15);
+            this.label8.Size = new System.Drawing.Size(131, 15);
             this.label8.TabIndex = 19;
-            this.label8.Text = "percorso e nome file";
+            this.label8.Text = "percorso e nome file (*)";
             // 
             // txtNomeFile
             // 
-            this.txtNomeFile.Location = new System.Drawing.Point(26, 348);
+            this.txtNomeFile.Location = new System.Drawing.Point(12, 327);
             this.txtNomeFile.Name = "txtNomeFile";
             this.txtNomeFile.Size = new System.Drawing.Size(161, 23);
             this.txtNomeFile.TabIndex = 20;
@@ -242,7 +243,7 @@
             this.loadButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loadButton.Image = global::_05_ConfiguraTorta.Properties.Resources.load;
             this.loadButton.InitialImage = null;
-            this.loadButton.Location = new System.Drawing.Point(277, 289);
+            this.loadButton.Location = new System.Drawing.Point(262, 307);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(64, 64);
             this.loadButton.TabIndex = 21;
@@ -252,7 +253,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(277, 362);
+            this.label9.Location = new System.Drawing.Point(262, 373);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 15);
             this.label9.TabIndex = 22;
@@ -260,9 +261,9 @@
             // 
             // openFileNotepad
             // 
-            this.openFileNotepad.Location = new System.Drawing.Point(26, 386);
+            this.openFileNotepad.Location = new System.Drawing.Point(12, 356);
             this.openFileNotepad.Name = "openFileNotepad";
-            this.openFileNotepad.Size = new System.Drawing.Size(161, 23);
+            this.openFileNotepad.Size = new System.Drawing.Size(161, 25);
             this.openFileNotepad.TabIndex = 23;
             this.openFileNotepad.Text = "Open file in notepad";
             this.openFileNotepad.UseVisualStyleBackColor = true;
@@ -270,19 +271,32 @@
             // 
             // buttonDisegna
             // 
-            this.buttonDisegna.Location = new System.Drawing.Point(255, 235);
+            this.buttonDisegna.Location = new System.Drawing.Point(156, 238);
             this.buttonDisegna.Name = "buttonDisegna";
-            this.buttonDisegna.Size = new System.Drawing.Size(95, 25);
+            this.buttonDisegna.Size = new System.Drawing.Size(135, 25);
             this.buttonDisegna.TabIndex = 24;
-            this.buttonDisegna.Text = "disegna";
+            this.buttonDisegna.Text = "Disegna torta";
             this.buttonDisegna.UseVisualStyleBackColor = true;
             this.buttonDisegna.Click += new System.EventHandler(this.buttonDisegna_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(7, 391);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(330, 50);
+            this.textBox1.TabIndex = 25;
+            this.textBox1.Text = "(*) specificando solo un nome, senza percorso, il file viene creato nella stessa " +
+    "cartella dove si genera l\'eseguibile (bin/Debug)";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 451);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonDisegna);
             this.Controls.Add(this.openFileNotepad);
             this.Controls.Add(this.label9);
@@ -343,5 +357,6 @@
         private Label label9;
         private Button openFileNotepad;
         private Button buttonDisegna;
+        private TextBox textBox1;
     }
 }
