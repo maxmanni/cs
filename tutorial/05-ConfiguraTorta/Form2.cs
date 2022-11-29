@@ -117,13 +117,14 @@ namespace _05_ConfiguraTorta
         bool disegnaClicked = false;
         private void buttonDisegna_Click(object sender, EventArgs e)
         {
+            crea_oggetto_da_campi();
             disegnaClicked = true;
             panelDisegno.Invalidate();
         }
 
 
         const float larghezzaStrato = 100.0f;
-        const float altezzaStrato = 20.0f;
+        const float altezzaStrato = 10.0f;
         const float altezzaFarcitura = 5.0f;
         const float yPartenzaTorta = 0.0f;
 
@@ -132,19 +133,61 @@ namespace _05_ConfiguraTorta
             if (disegnaClicked)
             {
                 Graphics g = e.Graphics;
-                g.Clear(panelDisegno.BackColor);
 
                 //sposta origine delle coordinate al centro del pannello e flippa l'asse y
-                g.ResetTransform();
                 g.TranslateTransform((float)panelDisegno.Width / 2.0f, (float)panelDisegno.Height / 2.0f);
                 g.ScaleTransform(1.0f, -1.0f);
 
+                g.Clear(panelDisegno.BackColor);
+                //test line
+                //g.DrawLine(Pens.Red, 0.0f, 0.0f, (float)panelDisegno.Width /2 , (float)panelDisegno.Height/2 );
+
+
+                //copertura
+                Brush brushCopertura = Brushes.LightYellow;
+                switch(torta.Copertura)
+                {
+                    case TipoCopertura.CIOCCOLATO:
+                        brushCopertura = Brushes.Brown;
+                        break;
+                    case TipoCopertura.ZUCCHERO_A_VELO:
+                        brushCopertura = Brushes.LightBlue;
+                        break;
+                }
+
+                //farcitura
+                Brush brushFarcitura = Brushes.LightYellow;
+                switch (torta.Farcitura)
+                {
+                    case TipoFarcitura.MARMELLATA:
+                        brushFarcitura = Brushes.Orange;
+                        break;
+                    case TipoFarcitura.CREMA:
+                        brushFarcitura = Brushes.Yellow;
+                        break;
+                }
+
+
                 float y = yPartenzaTorta;
-               
+                for (int i=0;i<torta.NumeroStrati;i++)
+                {
+                    //disegna strato
+                    g.FillRectangle(brushCopertura, -larghezzaStrato / 2, y, larghezzaStrato, altezzaStrato);
+                    y += altezzaStrato;
 
+                    //disegna farcitura (se c'e')
+                    if (i < torta.NumeroStrati-1 && (torta.Farcitura != TipoFarcitura.NESSUNA))
+                    {
+                        g.FillRectangle(brushFarcitura, -larghezzaStrato / 2, y, larghezzaStrato, altezzaFarcitura);
+                        y += altezzaFarcitura;
+                    }
+                }
 
-                g.DrawLine(Pens.Red, 0.0f, 0.0f, (float)panelDisegno.Width /2 , (float)panelDisegno.Height/2 );
-
+                //disegna stringa cottura
+                var gc = g.BeginContainer();
+                g.ScaleTransform(1.0f, -1.0f);
+                g.DrawString(torta.StringaCottura, panelDisegno.Font, Brushes.Black, new PointF(-50, 20));
+                g.EndContainer(gc);
 
                 disegnaClicked = false;
             }

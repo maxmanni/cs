@@ -19,6 +19,22 @@ namespace _05_ConfiguraTorta
         public bool VaCotta { get; set; }
         public float TemperaturaCottura { get; set; }
         public float TempoCottura { get; set; }
+
+        public string StringaCottura
+        {
+            get
+            {
+                if (VaCotta)
+                {
+                    return string.Format("Va cotta a {0}°C per {1} min.", TemperaturaCottura, TempoCottura);
+                } else
+                {
+                    return "Non va cotta";
+                }
+                
+            }
+        }
+
         public int NumeroStrati { get; set; }
 
         public TipoCopertura Copertura {get; set;}
