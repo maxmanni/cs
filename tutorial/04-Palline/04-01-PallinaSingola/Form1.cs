@@ -92,7 +92,7 @@ namespace Project2_Graphics
         {
             double deg = randomAngle();
             double rad = toRadiant(deg);
-            m = Math.Atan(rad); //m della retta della palla;
+            m = Math.Tan(rad); //m della retta della palla;
             Console.WriteLine("gradi = {0:0.00}, radianti = {1:0.00}, pm = {2:0.00}", deg, rad, m);
 
             timer1.Enabled = true;

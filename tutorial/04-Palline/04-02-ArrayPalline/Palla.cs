@@ -38,7 +38,7 @@ namespace Project2_Graphics
 
             deg = randomAngle();
             rad = toRadiant(deg);
-            m = Math.Atan(rad); //m della retta della palla;
+            m = Math.Tan(rad); //m della retta della palla;
             dir = randomDirection();
 
 
