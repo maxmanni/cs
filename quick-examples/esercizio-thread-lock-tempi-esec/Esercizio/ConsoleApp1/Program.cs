@@ -97,7 +97,7 @@ public class Program
         });
         Thread t2 = new Thread(() =>
         {
-            Cronometro cronThread2 = new Cronometro("cronThread1");
+            Cronometro cronThread2 = new Cronometro("cronThread2");
             cronThread2.Start();
             int i;
             for (i = N/2; i < N; i++)
