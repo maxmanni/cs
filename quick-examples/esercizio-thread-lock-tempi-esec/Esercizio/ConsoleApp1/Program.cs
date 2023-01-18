@@ -43,11 +43,10 @@ public static class Util
 
 public class Program
 {
-    const int N = 10000; //dimensione dei dati
+    const int N = 1000000; //dimensione dei dati
 
     public static void Main(String[] args)
     {
-        Console.WriteLine("hello World");
         int[] a = new int[N];
         int i = 0, somma = 0;
         Random rand = new Random();
@@ -63,23 +62,67 @@ public class Program
         tRiempimento.End();
         Console.WriteLine(tRiempimento);
 
+
         Console.WriteLine("\nSomma eseguita con un solo thread");
-        Cronometro tSomma1 = new Cronometro("Somma1");
-        tSomma1.Start();
+        Cronometro cron1 = new Cronometro("cron1");
+        cron1.Start();
         somma = 0;
         for (i = 0; i < N; i++)
         {
             somma += a[i];
             //Thread.Sleep(1);
         }
-        tSomma1.End();
-        Console.WriteLine(tSomma1);
+        cron1.End();
+        Console.WriteLine("somma = " + somma);
+        Console.WriteLine(cron1);
         Util.Pause();
 
 
 
         Console.WriteLine("\nSomma eseguita con due thread, su parti indipendenti");
-        //TODO
+        int somma1 = 0;
+        int somma2 = 0;
+        Thread t1 = new Thread(() =>
+        {
+            Cronometro cronThread1 = new Cronometro("cronThread1");
+            cronThread1.Start();
+            int i;
+            for (i = 0; i < N/2; i++)
+            {
+                somma1 += a[i];
+                //Thread.Sleep(1);
+            }
+            cronThread1.End();
+            Console.WriteLine(cronThread1);
+        });
+        Thread t2 = new Thread(() =>
+        {
+            Cronometro cronThread2 = new Cronometro("cronThread1");
+            cronThread2.Start();
+            int i;
+            for (i = N/2; i < N; i++)
+            {
+                somma2 += a[i];
+                //Thread.Sleep(1);
+            }
+            cronThread2.End();
+            Console.WriteLine(cronThread2);
+        });
+
+        //faccio partire i thread e il cronometro
+        Cronometro cron2 = new Cronometro("cron2");
+        cron2.Start();
+        t1.Start();
+        t2.Start();
+
+        //il main aspetta che finiscano tutti e due i thread
+        t1.Join();
+        t2.Join();
+        cron2.End();
+
+        Console.WriteLine("somma = {0}", somma);
+        Console.WriteLine("somma1 + somma2 = {0}", somma1+somma2);
+        Console.WriteLine(cron2);
         Util.Pause();
     }
 }
